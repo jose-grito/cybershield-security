@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield - Servicios de Seguridad Informática</title>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d0d2b;
+            --secondary: #2b076e;
+            --accent: #42f2cb;
+            --text: #ffffff;
+            --danger: #ff4d4d;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        
+        header {
+            background-color: rgba(43, 7, 110, 0.9);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.7);
+            padding: 1rem;
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav a {
+            color: var(--accent);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: white;
+            text-shadow: 0 0 8px var(--accent);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: rgba(13, 13, 43, 0.85);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(66, 242, 203, 0.2);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(66, 242, 203, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--text);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(66, 242, 203, 0.4);
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .service-card {
+            background-color: var(--secondary);
+            padding: 2rem;
+            border-radius: 5px;
+            border-left: 5px solid var(--accent);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .service-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+        
+        .disclaimer {
+            background-color: var(--danger);
+            padding: 2rem;
+            border-radius: 5px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .hacker-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+            margin: 1rem auto;
+            display: block;
+            box-shadow: 0 0 15px rgba(66, 242, 203, 0.4);
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .image-gallery img {
+            width: 100%;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            border: 1px solid var(--accent);
+        }
+        
+        .image-gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Botones flotantes de redes sociales */
+        .social-buttons {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+        
+        .social-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .social-button:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        .whatsapp {
+            background-color: #25D366;
+        }
+        
+        .facebook {
+            background-color: #3b5998;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                margin: 5px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .social-buttons {
+                flex-direction: row;
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .social-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CyberShield</h1>
+        <p>Servicios Profesionales de Seguridad Informática</p>
+    </header>
+    
+    <nav>
+        <a href="#services">Servicios</a>
+        <a href="#about">Sobre Nosotros</a>
+        <a href="#gallery">Galería</a>
+        <a href="#ethics">Ética</a>
+        <a href="#contact">Contacto</a>
+    </nav>
+    
+    <div class="container">
+        <section class="hero">
+            <h1>Protección Cibernética Avanzada</h1>
+            <p>Soluciones de seguridad para la era digital</p>
+            
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                 alt="Seguridad informática" 
+                 class="hacker-image">
+                 
+            <a href="#contact" class="btn">Consultar Servicios</a>
+        </section>
+        
+        <section id="services">
+            <h2>Nuestros Servicios</h2>
+            <div class="services">
+                <div class="service-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2489/2489077.png" alt="Pentesting">
+                    <h3>Pruebas de Penetración</h3>
+                    <p>Simulamos ataques reales a tus sistemas para identificar vulnerabilidades críticas antes que los atacantes malintencionados.</p>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2285/2285531.png" alt="Auditoría">
+                    <h3>Auditoría de Seguridad</h3>
+                    <p>Evaluación exhaustiva de tus sistemas, redes y aplicaciones para detectar fallos de configuración y debilidades.</p>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3059/3059518.png" alt="Recuperación">
+                    <h3>Recuperación de Cuentas</h3>
+                    <p>Te ayudamos a recuperar el acceso a cuentas propias que hayas perdido, siempre con prueba de propiedad.</p>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" alt="Forensia">
+                    <h3>Forensia Digital</h3>
+                    <p>Investigación de incidentes de seguridad y análisis post-compromiso para determinar el alcance de un ataque.</p>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1570/1570887.png" alt="Capacitación">
+                    <h3>Concientización</h3>
+                    <p>Capacitación a tu personal para reconocer y evitar amenazas como phishing y ingeniería social.</p>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1063/1063196.png" alt="Hardening">
+                    <h3>Hardening</h3>
+                    <p>Fortalecimiento de tus sistemas y configuraciones para hacerlos resistentes a ataques.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="gallery">
+            <h2>Galería de Trabajos</h2>
+            <div class="image-gallery">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hacking ético">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Seguridad">
+                <img src="https://images.unsplash.com/photo-1548092372-44dff5351c51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Código seguro">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tecnología">
+            </div>
+        </section>
+        
+        <section id="about">
+            <h2>Sobre Nosotros</h2>
+            <p>CyberShield es un equipo de expertos en seguridad informática certificados (CEH, OSCP, CISSP) con más de 10 años de experiencia protegiendo sistemas para empresas y particulares.</p>
+            <p>Nuestro enfoque se basa en métodos éticos y legales, trabajando siempre con autorización por escrito de nuestros clientes.</p>
+        </section>
+        
+        <div class="disclaimer">
+            <h3>AVISO LEGAL</h3>
+            <p>Todos nuestros servicios se prestan únicamente con autorización por escrito del propietario del sistema. No realizamos actividades ilegales ni apoyamos el hacking no ético. Trabajamos dentro del marco legal en todas nuestras operaciones.</p>
+        </div>
+        
+        <section id="ethics">
+            <h2>Código Ético</h2>
+            <p>Nos regimos por los siguientes principios:</p>
+            <ul>
+                <li>Siempre obtener autorización por escrito antes de realizar cualquier prueba</li>
+                <li>Mantener estricta confidencialidad de los datos del cliente</li>
+                <li>Reportar todas las vulnerabilidades encontradas de manera responsable</li>
+                <li>No causar daño intencional a los sistemas</li>
+                <li>Actuar siempre dentro del marco legal</li>
+            </ul>
+        </section>
+        
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p>Para consultas sobre nuestros servicios, por favor utiliza nuestro canal seguro:</p>
+            <p>Email: <strong>contacto@cybershield-secure.com</strong> (PGP Key disponible)</p>
+            <p>Teléfono: <strong>+1 (555) 123-4567</strong></p>
+            <p><em>Todos los contactos son verificados antes de iniciar cualquier servicio.</em></p>
+        </section>
+    </div>
+    
+    <!-- Botones flotantes de redes sociales -->
+    <div class="social-buttons">
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.me/5215512345678?text=Hola,%20estoy%20interesado%20en%20sus%20servicios%20de%20seguridad" 
+           class="social-button whatsapp" 
+           target="_blank"
+           title="Contáctanos por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        
+        <!-- Botón de Facebook -->
+        <a href="https://www.facebook.com/tupagina" 
+           class="social-button facebook" 
+           target="_blank"
+           title="Visítanos en Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 CyberShield Security Services. Todos los derechos reservados.</p>
+        <p>Este sitio es solo para fines educativos y legales.</p>
+    </footer>
+</body>
+</html>
